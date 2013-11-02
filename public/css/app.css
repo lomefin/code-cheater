@@ -4,6 +4,14 @@
   color: white;
 }
 
+footer
+{
+  background-color: #463265;
+  color: white;
+  min-height: 6em;
+  text-align: center;
+  padding: 2em 0;
+}
 .var-drop
 {
   color: #463265;

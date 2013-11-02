@@ -5,19 +5,40 @@
   </div>
 </div>
 <div class="container">
-  <h1>Content</h1>
-  <ul>
-    <li><a href="#psql">Create Postgresql users</a></li>
-  </ul>
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Why?</h1>
+      <p class="lead">
+        Lots of time we need to do the same things over and over again, but the procedure is hard to remember.
+      </p>
+      <p>Fortunately, it's quite easy to find them, but sometimes you just want to Copy&Paste, so we are trying to keep it as simple as possible. I hope it helps you.</p>
+    </div>
+    <div class="col-md-4 well">
+      <h1>Content</h1>
+      <ul>
+        <li><a href="#psql">Create Postgresql users</a></li>
+      </ul>
+    </div>
+  </div>
+  
 </div>
 <div class="container">
-  <a name="psql"></a>
-  <h2>Create PostgreSQL users on Linux</h2>
-  <p>Based on: <a href="http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/">http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/</a></p>
+  
+</div>
+<div class="container">
   <div class="row">
-    <p>To create the username, we need a Linux account, the username and a database name. We assume that the linux and postgresql account will have the same name.</p>
-    <p>You'll need to add the username password in between.</p>
-    <p>You need to become user postgres, it is expected that you are a sudoer</p>
+    <div class="col-md-12">
+      <a name="psql"></a>
+      <h1>Create PostgreSQL users on Linux</h1>
+      <p>Based on: <a href="http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/">PostgreSQL add or create a user account and grant permission for database [Cyberciti.biz]</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>To create the username, we need a Linux account, the username and a database name. We assume that the linux and postgresql account will have the same name.</p>
+      <p>You'll need to add the username password in between.</p>
+      <p>You need to become user postgres, it is expected that you are a sudoer</p>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-8 ">
@@ -35,7 +56,7 @@ GRANT ALL PRIVILEGES ON DATABASE <span class="var-drop" data-var="database"></sp
 </pre>
     </div>
     <div class="col-md-3 col-md-offset-1 well">
-      <form>
+      <form id="psql">
         <div class="form-group">
           <label for="username">Linux and Postgresql username</label>
           <input type="text" class="form-control var-listener" id="username" placeholder="Enter username" />
