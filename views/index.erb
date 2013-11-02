@@ -1,32 +1,55 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>Tini: Anda al teatro con el Leo!</h1>
-    <p class="lead">Puede que sea bajito, pero no puedes negar que es motivado!</p>
+    <h1>Code Cheater</h1>
+    <p class="lead">The same info you get anywhere else, but easier.</p>
   </div>
 </div>
 <div class="container">
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-1">
-      <p class="lead">La invitación es a ir al teatro, cualquier día entre el 29 de octubre y el 3 de noviembre.</p>    
-    </div>
-    <div class="col-md-3">
-      <p>Incluye la entrada pa la obra que te tinque más, una bonita comida y harto pa conversar =)</p>
-    </div>
-  </div>
-  <div class="row"><div class="col-md-10 col-md-offset-1"><h2>Y, qué dices?</h2></div></div>
-  <div class="row"><div class="col-md-10 col-md-offset-1">
-  <div class="row">
-
-    <div class="col-md-4 col-sm-12">
-      <a class="btn btn-primary btn-block" href="yeah">Si! Obvio!</a>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <a class="btn btn-info btn-block" href="yeah">Ya!! Bacán!</a>
-    </div>
-    <div class="col-md-4 col-sm-12">
-      <a class="btn btn-success btn-block" href="yeah">Dale! Me encanta!</a>
-    </div>
-  </div>
-  </div></div>
+  <h1>Content</h1>
+  <ul>
+    <li><a href="#psql">Create Postgresql users</a></li>
+  </ul>
 </div>
+<div class="container">
+  <a name="psql"></a>
+  <h2>Create PostgreSQL users on Linux</h2>
+  <p>Based on: <a href="http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/">http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/</a></p>
+  <div class="row">
+    <p>To create the username, we need a Linux account, the username and a database name. We assume that the linux and postgresql account will have the same name.</p>
+    <p>You'll need to add the username password in between.</p>
+    <p>You need to become user postgres, it is expected that you are a sudoer</p>
+  </div>
+  <div class="row">
+    <div class="col-md-8 ">
+<pre class="example-code">
+adduser <span class="var-drop" data-var="username"></span>
+passwd <span class="var-drop" data-var="username"></span>
+sudo su postgres
+psql
+</pre>
+<p>You are now in the PSQL terminal, add the following code:</p>
+<pre class="example-code">
+CREATE USER  <span class="var-drop" data-var="username"></span> WITH PASSWORD '<span class="var-drop" data-var="postsqlpwd"></span>';
+CREATE DATABASE <span class="var-drop" data-var="database"></span>;
+GRANT ALL PRIVILEGES ON DATABASE <span class="var-drop" data-var="database"></span> TO <span class="var-drop" data-var="username"></span>;
+</pre>
+    </div>
+    <div class="col-md-3 col-md-offset-1 well">
+      <form>
+        <div class="form-group">
+          <label for="username">Linux and Postgresql username</label>
+          <input type="text" class="form-control var-listener" id="username" placeholder="Enter username" />
+        </div>
+        <div class="form-group">
+          <label for="postsqlpwd">Database user password</label>
+          <input type="text" class="form-control var-listener" id="postsqlpwd" placeholder="Enter postgresql user password" />
+        </div>
+        <div class="form-group">
+          <label for="database">Database name</label>
+          <input type="text" class="form-control var-listener" id="database" placeholder="Enter database name" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
