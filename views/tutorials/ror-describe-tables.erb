@@ -1,0 +1,30 @@
+<section id="new-rails-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a name="psql"></a>
+        <h1>Describe tables in Ruby on Rails</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>Sometimes you forget the internal structure of your objects in Rails, and maybe you are too lazy to check <code>schema.rb</code></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Assumptions</h2>
+        <p>You already are in the Rails console. If you aren't type down <code>rails c</code></p>
+      </div>
+    </div>
+<div class="row">
+<div class="col-md-10 ">
+<pre class="example-code">
+ActiveRecord::Base.connection.tables.each do |table|
+  puts table
+  ActiveRecord::Base.connection.columns(table).each {|c| puts "\t- "+c.name+"\t"+c.type.to_s}
+end
+</pre>
+</div>
+</div>
+</div>
