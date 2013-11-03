@@ -43,7 +43,8 @@ Storager = (function() {
       console.log("I want to store value of ", varName);
     }
     if (!((currentValue != null) || (storedValue == null) || storedValue === "")) {
-      return element.val(storedValue);
+      element.val(storedValue);
+      return element;
     }
   };
 

@@ -20,8 +20,6 @@ window.listenVars = function(){
   $('input.var-listener').keyup(updatedInputs);
   $('select.var-listener').change(updatedInputs);
 
-  //Defaultit
-  $('input.var-listener').keyup();
-  $('select.var-listener').change();
+ 
 
 };
