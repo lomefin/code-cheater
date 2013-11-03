@@ -1,4 +1,4 @@
-$(function(){
+window.listenVars = function(){
   
   var updatedInputs = function(evt){
     var tgt = $(evt.target);
@@ -24,4 +24,4 @@ $(function(){
   $('input.var-listener').keyup();
   $('select.var-listener').change();
 
-});
+};

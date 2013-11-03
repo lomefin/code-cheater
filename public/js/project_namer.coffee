@@ -10,6 +10,14 @@ class ProjectNamer
    chooseRandom: (list)->
      list[Math.floor(Math.random() * list.length)]
 
+   nameIfEmpty :(_element)->
+    element = $(_element)
+    element.val(@newName()) if element.val() == ""
+
+   bind: ()->
+     inputs = $('input.var-listener')
+     @nameIfEmpty(input) for input in inputs
+     
    newName: ()->
 
       [@chooseRandom(@adjectives),@chooseRandom(@objects),@chooseRandom(@complements)].join('-').toLowerCase()

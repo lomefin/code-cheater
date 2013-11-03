@@ -42,7 +42,7 @@ rails server
         <form id="psql">
           <div class="form-group">
             <label for="app-name">Application Name</label>
-            <input type="text" class="form-control var-listener" id="app-name" placeholder="Enter app name" value="power-koala-hut" />
+            <input type="text" class="form-control var-listener" id="app-name" placeholder="Enter app name" value="" />
           </div>
           <div class="form-group">
             <label for="ruby-version">Ruby version</label>
@@ -56,8 +56,3 @@ rails server
     </div>
   </div>
 </section>
-<script>
-$(function(){
-  $('#app-name').val(projectNamer.newName());
-});
-</script>

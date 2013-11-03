@@ -12,6 +12,29 @@ ProjectNamer = (function() {
     return list[Math.floor(Math.random() * list.length)];
   };
 
+  ProjectNamer.prototype.nameIfEmpty = function(_element) {
+    var element;
+    element = $(_element);
+    console.log ("Trying to name ", element, " ", element.val());
+    if (element.val() === "") {
+      return element.val(this.newName());
+    }else
+    {
+      console.log ("Nah");
+    }
+  };
+
+  ProjectNamer.prototype.bind = function() {
+    var input, inputs, _i, _len, _results;
+    inputs = $('input.var-listener');
+    _results = [];
+    for (_i = 0, _len = inputs.length; _i < _len; _i++) {
+      input = inputs[_i];
+      _results.push(this.nameIfEmpty(input));
+    }
+    return _results;
+  };
+
   ProjectNamer.prototype.newName = function() {
     return [this.chooseRandom(this.adjectives), this.chooseRandom(this.objects), this.chooseRandom(this.complements)].join('-').toLowerCase();
   };
@@ -23,5 +46,3 @@ ProjectNamer = (function() {
 if (window.ProjectNamer == null) {
   window.ProjectNamer = ProjectNamer;
 }
-
-window.projectNamer = new ProjectNamer();
