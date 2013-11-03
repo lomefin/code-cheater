@@ -3,7 +3,11 @@
   background-color: #463265;
   color: white;
 }
-
+.jumbotron a
+{
+  text-decoration: none;
+  color: white;
+}
 footer
 {
   background-color: #463265;
