@@ -10,18 +10,25 @@
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="/js/psql.js"></script>
 </head>
 
 <body>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Code Cheater</h1>
+    <p class="lead">The same info you get anywhere else, but easier.</p>
+  </div>
+</div>
 <%= yield %>
 
 <footer>
   <div class="container">
   
-    Code Cheater, by Leonardo Luarte.    
+    Code Cheater, by <a href="https://github.com/lomefin">Leonardo Luarte</a>.    
   
   </div>
 </footer>
+<script src="/js/var_listener.js"></script>
+<script src="/js/project_namer.js"></script>
 </body>
 </html>
