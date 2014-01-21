@@ -3,14 +3,13 @@
     <div class="row">
       <div class="col-md-12">
         <a name="psql"></a>
-        <h1>Create new Rails 4 application</h1>
+        <h1>Create new Rails 4 application for Heroku</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <p>I have to say that I'm not a real expert when we talk about bringing up the latest things. But we need to keep up.</p>
-        <p>This way of installing Rails 4 is based on <a href="https://rvm.io/rvm/">RVM</a>, <a href="http://rubyonrails.org/download">Ruby on Rails</a> Docs, and my experience. Please send feedback if this doesn't work correctly.</p>
-        <p>If you are planning to use this project for Heroku, you should use the <a href="/tutorials/new-rails-4-heroku">Rails 4 Heroku tutorial</a> instead.</p>
+        <p>This way of installing Rails 4 is based on <a href="https://rvm.io/rvm/">RVM</a>, <a href="http://rubyonrails.org/download">Ruby on Rails</a> Docs, <a href="https://devcenter.heroku.com/articles/getting-started-with-rails4">Heroku Docs</a> and my experience. Please send feedback if this doesn't work correctly.</p>
       </div>
     </div>
     <div class="row">
@@ -19,7 +18,7 @@
         <p>You already have RVM. You get it from <a href="https://rvm.io/rvm/install">https://rvm.io/rvm/install</a> if not.</p>
         <p>Rails 4 is the most recent Rails</p>
         <p>You are on a Linux Machine (maybe works also on Mac)</p>
-        <p>You want to use Vanilla Rails (i.e. SQLite instead of Postgres)</p>
+        <p>You want to Postgres</p>
       </div>
     </div>
     <div class="row">
@@ -28,8 +27,14 @@
 mkdir <span class="var-drop" data-var="app-name"></span>
 cd <span class="var-drop" data-var="app-name"></span>
 rvm use <span class="var-drop" data-var="ruby-version"></span>@<span class="var-drop" data-var="app-name"></span> --create --ruby-version
-gem install rails
-rails new .
+gem install rails --no-ri --no-rdoc
+rails new . --database=postgresql
+</pre>
+<p>The project is almost ready, but there are two things that must be also done. I always need to add <a href="https://rubygems.org/gems/therubyracer"> therubyracer Gem</a> and the rails12factor gem for heroku</p>
+<pre class="example-code">
+echo "gem 'rails_12factor', group: :production" >> Gemfile
+echo "gem 'therubyracer'" >> Gemfile  
+bundle
 </pre>
   <p>Your project is now bundled and ready to go, let me add you this simple lines so you start the right way ;)</p>
 <pre class="example-code">
@@ -38,6 +43,7 @@ git add .
 git commit -m "First commit"
 rails server
 </pre>
+<p>When done with these steps, you should link to heroku (I won't cover that here) and configure the postgresql in your development computer, as in the <a href="/tutorials/psql-user-create">PSQL User create</a> tutorial.</p>
 </div>
       <div class="col-md-3 col-md-offset-1 well">
         <form id="psql">
