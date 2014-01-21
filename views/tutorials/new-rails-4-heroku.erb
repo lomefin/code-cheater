@@ -1,0 +1,64 @@
+<section id="new-rails-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a name="psql"></a>
+        <h1>Create new Rails 4 application for Heroku</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>I have to say that I'm not a real expert when we talk about bringing up the latest things. But we need to keep up.</p>
+        <p>This way of installing Rails 4 is based on <a href="https://rvm.io/rvm/">RVM</a>, <a href="http://rubyonrails.org/download">Ruby on Rails</a> Docs, <a href="https://devcenter.heroku.com/articles/getting-started-with-rails4">Heroku Docs</a> and my experience. Please send feedback if this doesn't work correctly.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Assumptions</h2>
+        <p>You already have RVM. You get it from <a href="https://rvm.io/rvm/install">https://rvm.io/rvm/install</a> if not.</p>
+        <p>Rails 4 is the most recent Rails</p>
+        <p>You are on a Linux Machine (maybe works also on Mac)</p>
+        <p>You want to Postgres</p>
+      </div>
+    </div>
+    <div class="row">
+<div class="col-md-8 ">
+<pre class="example-code">
+mkdir <span class="var-drop" data-var="app-name"></span>
+cd <span class="var-drop" data-var="app-name"></span>
+rvm use <span class="var-drop" data-var="ruby-version"></span>@<span class="var-drop" data-var="app-name"></span> --create --ruby-version
+gem install rails --no-ri --no-rdoc
+rails new . --database=postgresql
+</pre>
+<p>The project is almost ready, but there are two things that must be also done. I always need to add <a href="https://rubygems.org/gems/therubyracer"> therubyracer Gem</a> and the rails12factor gem for heroku</p>
+<pre class="example-code">
+echo "gem 'rails_12factor', group: :production" >> Gemfile
+echo "gem 'therubyracer'" >> Gemfile  
+bundle
+</pre>
+  <p>Your project is now bundled and ready to go, let me add you this simple lines so you start the right way ;)</p>
+<pre class="example-code">
+git init .
+git add .
+git commit -m "First commit"
+rails server
+</pre>
+</div>
+      <div class="col-md-3 col-md-offset-1 well">
+        <form id="psql">
+          <div class="form-group">
+            <label for="app-name">Application Name</label>
+            <input type="text" class="form-control var-listener" id="app-name" placeholder="Enter app name" value="" />
+          </div>
+          <div class="form-group">
+            <label for="ruby-version">Ruby version</label>
+            <select class="form-control var-listener" id="ruby-version" >
+              <option  value="2.0.0" selected="selected">2.0.0</option>
+              <option  value="1.9.2">1.9.2</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
