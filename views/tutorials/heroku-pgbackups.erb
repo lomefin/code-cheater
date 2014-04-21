@@ -26,9 +26,6 @@
 <pre class="example-code">
 heroku pgbackups:capture --app <span class="var-drop" data-var="app-name"></span>
 curl -o <span class="var-drop" data-var="filename"></span> `heroku pgbackups:url --app <span class="var-drop" data-var="app-name">`</span>
-</pre>
-<p>Now you've got a local backup of your remote database on <span class="var-drop" data-var="filename"></span>. We'll now put this backup in our local database.</p>
-<pre class="example-code">
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -U  <span class="var-drop" data-var="username"></span> -d  <span class="var-drop" data-var="database"></span>  <span class="var-drop" data-var="filename"></span>
 </pre>
   <p>Your remote database is now duplicated on your local machine =)</p>
