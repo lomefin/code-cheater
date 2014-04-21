@@ -1,0 +1,58 @@
+<section id="heroku-pgbackups">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a name="psql"></a>
+        <h1>Download Remote Heroku Database Copy</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>This tutorial is quite simple to follow, but since I've been using it lots of time, its better to have it in the list.</p>
+        <p>This cheat is based on <a href="https://devcenter.heroku.com/articles/heroku-postgres-import-export">Heroku Docs - Heroku Postgres Import Export Example</a>.
+        <p>Please send feedback if this doesn't work correctly.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Assumptions</h2>
+        <p>You have a heroku application which uses a Postgresql database (most of them do).</p>
+        <p>You are on a Linux Machine (maybe works also on Mac)</p>
+        <p>You have curl installed</p>
+      </div>
+    </div>
+    <div class="row">
+<div class="col-md-8 ">
+<pre class="example-code">
+heroku pgbackups:capture --app <span class="var-drop" data-var="app-name"></span>
+curl -o <span class="var-drop" data-var="filename"></span> `heroku pgbackups:url --app <span class="var-drop" data-var="app-name"></span>
+</pre>
+<p>Now you've got a local backup of your remote database on <span class="var-drop" data-var="filename"></span>. We'll now put this backup in our local database.</p>
+<pre class="example-code">
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U  <span class="var-drop" data-var="username"></span>-d  <span class="var-drop" data-var="database"></span>  <span class="var-drop" data-var="filename"></span>
+</pre>
+  <p>Your remote database is now duplicated on your local machine =)</p>
+</div>
+      <div class="col-md-3 col-md-offset-1 well">
+        <form id="psql">
+          <div class="form-group">
+            <label for="app-name">Application Name</label>
+            <input type="text" class="form-control var-listener" id="app-name" placeholder="Enter app name" value="" />
+          </div>
+          <div class="form-group">
+            <label for="app-name">Local database backup filename</label>
+            <input type="text" class="form-control var-listener" id="filename" placeholder="Enter app name" value="" />
+          </div>
+          <div class="form-group">
+            <label for="app-name">Database username</label>
+            <input type="text" class="form-control var-listener" id="username" placeholder="Enter app name" value="" />
+          </div>
+          <div class="form-group">
+            <label for="app-name">Database Name</label>
+            <input type="text" class="form-control var-listener" id="database" placeholder="Enter app name" value="" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
