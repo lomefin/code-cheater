@@ -15,7 +15,7 @@ class ProjectNamer
     element.val(@newName()) if element.val() == ""
 
    bind: ()->
-     inputs = $('input.var-listener')
+     inputs = $('input.var-listener.needs-naming')
      @nameIfEmpty(input) for input in inputs
      
    newName: ()->
